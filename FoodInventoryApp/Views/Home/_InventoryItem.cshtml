@@ -1,0 +1,27 @@
+﻿@model  FoodInventoryApp.Models.InventoryItem
+
+<div class="inventory-item" style="display:inline-block">
+    <h3>@Model.Name</h3>
+    <ul>
+        <li>
+            Qty: @Model.Qty @Model.UnitsOfMeasurement
+        </li>
+        <li>
+            Location: @Model.Location
+        </li>
+        <li>
+            Expires: @Model.ExpirationDate
+        </li>
+    </ul>
+    <div class="inventory-item-actions">
+        <button>
+            +
+        </button>
+        <button>
+            -
+        </button>
+        <button>
+            Delete
+        </button>
+    </div>
+</div>
