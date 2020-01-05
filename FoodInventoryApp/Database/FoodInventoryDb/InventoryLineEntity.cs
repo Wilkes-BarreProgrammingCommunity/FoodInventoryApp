@@ -9,7 +9,6 @@ namespace FoodInventoryApp.Database.FoodInventoryDb
     public class InventoryLineEntity
     {
         public int InventoryId { get; set; }
-        public int UserId { get; set; }
         public string FoodName { get; set; }
         public string Location { get; set; }
         public decimal Qty { get; set; }
