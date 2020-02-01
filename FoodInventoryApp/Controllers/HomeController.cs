@@ -9,24 +9,7 @@ namespace FoodInventoryApp.Controllers
     {
         public IActionResult Index()
         {
-            var model = new InventoryItemsViewModel();
-            model.InventoryItems.Add(new InventoryItem()
-            {
-                Name = "Milk",
-                Qty = 1,
-                Location = "Fridge",
-                UnitsOfMeasurement = "Gallons",
-                ExpirationDate = new DateTime(2020, 1, 15)
-            });
-            model.InventoryItems.Add(new InventoryItem()
-            {
-                Name = "Eggs",
-                Qty = 12,
-                Location = "Fridge",
-                UnitsOfMeasurement = "Eggs",
-                ExpirationDate = new DateTime(2020, 1, 15)
-            });
-            return View(model);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

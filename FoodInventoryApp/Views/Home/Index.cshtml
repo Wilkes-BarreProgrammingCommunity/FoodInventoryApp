@@ -1,15 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model  FoodInventoryApp.Models.InventoryItemsViewModel 
 
 <div class="text-center">
     <h1> Inventory List </h1>
 
     <div class="container">
-        @foreach (var inventoryItem in Model.InventoryItems)
-        {
-            <partial model=@inventoryItem name="_InventoryItem" />
-        }
+       
     </div>
 </div>
