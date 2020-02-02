@@ -36,7 +36,7 @@ namespace FoodInventoryApp
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<FoodInventoryContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("FoodInventoryDatabase")
+                options => options.UseSqlServer(Configuration.GetConnectionString("FoodInventoryConnection")
                 )
             );
         }
