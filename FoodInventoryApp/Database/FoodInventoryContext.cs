@@ -10,6 +10,12 @@ namespace FoodInventoryApp.Database
         {
 
         }
+
+        public FoodInventoryContext()
+        {
+
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<InventoryLine> InventoryLines { get; set; }
         public DbSet<UserInventoryMapping> UserInventoryMappings { get; set; }
