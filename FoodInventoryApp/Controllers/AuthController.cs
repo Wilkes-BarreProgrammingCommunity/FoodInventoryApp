@@ -32,7 +32,16 @@ namespace FoodInventoryApp.Controllers
                 return PartialView("_Registration", registrationInfo);
             }
 
-            //if (username in database) message = username already taken
+            //check for username existence
+            using (var context = new FoodInventoryContext())
+            {
+                var user = context.Users.FirstOrDefault(u => u.Username == registrationInfo.Username);
+                if (!(user is null))
+                {
+                    registrationInfo.ErrorMessage = "That username is already taken.";
+                    return PartialView("_Registration", registrationInfo);
+                }
+            }
 
             if (registrationInfo.Password != registrationInfo.ConfirmPassword)
             {

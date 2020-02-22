@@ -6,7 +6,7 @@
         <h4>Registration</h4>
     </div>
     <div name="registration-body">
-        <form asp-controller="Registration" asp-action="RegisterUser" method="post">
+        <form asp-controller="Auth" asp-action="RegisterUser" method="post">
             <div class="form-control">
                 <label for="username">Username:</label>
                 <input name="username" id="username" type="text" />
@@ -23,7 +23,7 @@
                 <p class="alert-danger">@Model.ErrorMessage</p>
             </div>
             <div>
-                <button class="btn-primary" type="submit">Register!</button>
+                <button class="btn-primary" type="submit">Register</button>
             </div>
         </form>
     </div>

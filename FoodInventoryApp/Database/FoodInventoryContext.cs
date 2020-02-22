@@ -6,7 +6,7 @@ namespace FoodInventoryApp.Database
 {
     public partial class FoodInventoryContext : DbContext
     {
-        public FoodInventoryContext(DbContextOptions<FoodInventoryContext> options): base(options)
+        public FoodInventoryContext(DbContextOptions<FoodInventoryContext> options) : base(options)
         {
 
         }
