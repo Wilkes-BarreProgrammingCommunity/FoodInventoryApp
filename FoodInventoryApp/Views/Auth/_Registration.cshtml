@@ -1,7 +1,4 @@
 ﻿@model  FoodInventoryApp.Models.Registration
-@{
-    ViewData["Title"] = "Registration";
-}
 
 <!-- TODO: Complete form to submit correctly to RegistrationController-->
 <div>
@@ -9,14 +6,21 @@
         <h4>Registration</h4>
     </div>
     <div name="registration-body">
-        <form asp-controller="Registration" asp-action="Register" method="post">
+        <form asp-controller="Registration" asp-action="RegisterUser" method="post">
             <div class="form-control">
                 <label for="username">Username:</label>
                 <input name="username" id="username" type="text" />
             </div>
             <div class="form-control">
                 <label for="password">Password:</label>
-                <input name="password" id="password" type="text"/>
+                <input name="password" id="password" type="password" />
+            </div>
+            <div class="form-control">
+                <label for="confirmpassword">Confirm Password:</label>
+                <input name="confirmpassword" id="confirmpassword" type="password" />
+            </div>
+            <div>
+                <p class="alert-danger">@Model.ErrorMessage</p>
             </div>
             <div>
                 <button class="btn-primary" type="submit">Register!</button>

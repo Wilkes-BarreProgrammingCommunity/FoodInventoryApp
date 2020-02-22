@@ -8,11 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoodInventoryApp.Controllers
 {
-    public class RegistrationController : Controller
+    public class AuthController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Registration(Registration registration)
         {
-            return View();
+
+            return PartialView("_Registration", registration);
         }
 
         //TODO: Choose an encryption or hashing method to more securely store passwords in the database as opposed to plaintext
@@ -21,12 +22,22 @@ namespace FoodInventoryApp.Controllers
         {
             if (registrationInfo.Username == null)
             {
-                return View("Index");
+                registrationInfo.ErrorMessage = "Please input a user name.";
+                return PartialView("_Registration", registrationInfo);
             }
 
             if (registrationInfo.Password == null)
             {
-                return View("Index");
+                registrationInfo.ErrorMessage = "Please input a password.";
+                return PartialView("_Registration", registrationInfo);
+            }
+
+            //if (username in database) message = username already taken
+
+            if (registrationInfo.Password != registrationInfo.ConfirmPassword)
+            {
+                registrationInfo.ErrorMessage = "The input passwords do not match";
+                return PartialView("_Registration", registrationInfo);
             }
 
             using (var context = new FoodInventoryContext())
@@ -35,6 +46,7 @@ namespace FoodInventoryApp.Controllers
                 {
                     Username = registrationInfo.Username,
                     Password = registrationInfo.Password
+                    
                 };
                 context.Users.Add(user);
                 context.SaveChanges();
